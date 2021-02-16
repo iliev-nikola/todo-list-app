@@ -1,14 +1,14 @@
 const userStorage = (function () {
     class Todo {
-        constructor(todo) {
-            this.todo = todo;
+        constructor(title) {
+            this.title = title;
         }
     }
 
     class UserStorage {
         constructor() {
-            if (localStorage.getItem('todos')) {
-                this.todos = JSON.parse(localStorage.getItem('todos'));
+            if (getItem('todos')) {
+                this.todos = getItem('todos');
             } else {
                 this.todos = [];
                 localStorage.setItem('todos', JSON.stringify(this.todos));

@@ -17,29 +17,24 @@
             <input type="text" placeholder="new task" id="inputValue">
             <button id="submitBtn">Add</button>
         </form>
-        <div class="content">
-            <ul id="list"></ul>
-            <div class="button">
-                <button id="clearBtn">Clear</button>
-            </div>
-        </div>
+        <div id="content"></div>
+        <button id="clearBtn">Clear</button>
 
-        <script id="content" type="text/x-handlebars-template">
-            {{#if list}}
-            <ul class="content">
-                {{#each list}}
-                <li><i class="'fas fa-trash-alt"></i><p>{{this}}</p></li>
+        <script id="source" type="text/x-handlebars-template">
+            {{#if this}}
+            <ul>
+                {{#each this}}
+                <li><i class="fas fa-trash-alt"></i><p>{{this.title}}</p></li>
                 {{/each}}
             </ul>
-            <button id="clear">Clear</button>
             {{else}}
             <h2>No todos added yet...</h2>
+            {{/if}}
         </script>
         <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
         <script src="./assets/js/utils.js"></script>
         <script src="./assets/js/constants.js"></script>
         <script src="./assets/js/userModel.js"></script>
         <script src="./assets/js/userController.js"></script>
-        <script src="./assets/js/script.js"></script>
     </body>
 </html>
