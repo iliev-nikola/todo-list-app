@@ -1,0 +1,31 @@
+body {
+  text-align: center;
+  font-family: monospace;
+}
+
+#list {
+  padding: 0;
+  margin: 5px 5px 0 5px;
+}
+
+li {
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+li > p {
+  display: inline;
+  margin-left: 10px;
+}
+
+.content {
+  width: 220px;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+}
+
+.button {
+  text-align: right;
+}
