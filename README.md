@@ -4,5 +4,5 @@
 - Data storage: Browser's local storage
 - Templating: Handlebars
 - Screenshots:
-[![initial.png](https://i.postimg.cc/vT9cScys/initial.png)](https://postimg.cc/Mf66nZXP)
-[![todos.png](https://i.postimg.cc/bwqs3yF7/todos.png)](https://postimg.cc/3db8wTh1)
+[![initial.png](https://i.postimg.cc/LXL8R5C6/initial.png)](https://postimg.cc/ZBYSxbz1)
+[![todos.png](https://i.postimg.cc/d3JwYBZ4/todos.png)](https://postimg.cc/DJptQ1gX)
