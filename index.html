@@ -12,7 +12,6 @@
     </head>
     <body>
         <h1>TO-DO LIST</h1>
-
         <form action="" id="form">
             <input type="text" placeholder="new task" id="inputValue">
             <button id="submitBtn">Add</button>
@@ -20,17 +19,19 @@
         <div id="content"></div>
         <button id="clearBtn">Clear</button>
 
+        <!-- Handlebars Templating -->
         <script id="source" type="text/x-handlebars-template">
             {{#if this}}
             <ul>
                 {{#each this}}
-                <li><i class="fas fa-trash-alt"></i><p>{{this.title}}</p></li>
+                <li><i class="fas fa-trash-alt"></i><p class="title-text">{{this.title}}</p></li>
                 {{/each}}
             </ul>
             {{else}}
             <h2>No todos added yet...</h2>
             {{/if}}
         </script>
+        <!-- JavaScript -->
         <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
         <script src="./assets/js/utils.js"></script>
         <script src="./assets/js/constants.js"></script>

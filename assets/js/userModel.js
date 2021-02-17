@@ -1,27 +1,29 @@
 const userStorage = (function () {
     class Todo {
-        constructor(title) {
+        constructor(title, uuid) {
             this.title = title;
+            this.uuid = uuid;
         }
     }
 
     class UserStorage {
         constructor() {
-            if (getItem('todos')) {
-                this.todos = getItem('todos');
+            if (utils.getItem('todos')) {
+                this.todos = utils.getItem('todos');
             } else {
                 this.todos = [];
                 localStorage.setItem('todos', JSON.stringify(this.todos));
             }
         }
 
-        add(todo) {
-            this.todos.push(new Todo(todo));
+        add(todo, uuid) {
+            this.todos = utils.getItem('todos');
+            this.todos.push(new Todo(todo, uuid));
             localStorage.setItem('todos', JSON.stringify(this.todos));
         }
 
-        remove(todo) {
-            this.todos = this.todos.filter(item => item !== todo);
+        remove(uuid) {
+            this.todos = this.todos.filter(item => item.uuid !== uuid);
             localStorage.setItem('todos', JSON.stringify(this.todos));
         }
     }
