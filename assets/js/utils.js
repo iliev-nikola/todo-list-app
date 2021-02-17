@@ -10,6 +10,11 @@ const utils = (function () {
         const template = Handlebars.compile(source);
         const html = template(todos);
         content.innerHTML = html;
+        if (todos.length) {
+            CLEAR_BTN.style.display = 'block';
+        } else {
+            CLEAR_BTN.style.display = 'none';
+        }
     }
 
     function create_UUID() {
@@ -23,9 +28,22 @@ const utils = (function () {
         return uuid;
     }
 
+    function ifNoTodosAdded() {
+        if (utils.getItem('todos').length) {
+            CLEAR_BTN.style.display = 'block';
+        } else {
+            CLEAR_BTN.style.display = 'none';
+            const h2 = document.createElement('h2');
+            h2.innerText = 'No todos added yet...';
+            h2.id = 'infoText';
+            CONTENT.appendChild(h2);
+        }
+    }
+
     return {
         getItem,
         printTodos,
-        create_UUID
+        create_UUID,
+        ifNoTodosAdded
     }
 })();

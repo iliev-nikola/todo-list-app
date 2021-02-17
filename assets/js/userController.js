@@ -6,7 +6,9 @@
     SUBMIT_BTN.addEventListener('click', (e) => {
         e.preventDefault();
         if (INPUT.value.trim()) {
-            userStorage.add(INPUT.value.trim(), utils.create_UUID());
+            let value = INPUT.value.trim();
+            value = value[0].toUpperCase() + value.substring(1);
+            userStorage.add(value, utils.create_UUID());
             utils.printTodos();
             onTodoClick();
             INPUT.value = '';
@@ -26,12 +28,14 @@
                 userStorage.remove(e.target.dataset.id);
                 const parent = binsArr[i].parentElement.parentElement;
                 const child = binsArr[i].parentElement;
+                parent.removeChild(child.nextElementSibling);
                 parent.removeChild(child);
+                utils.ifNoTodosAdded();
             });
 
             binsArr[i].dataset.id = todos[i].uuid;
 
-            binsArr[i].nextElementSibling.addEventListener('click', (e) => {
+            binsArr[i].previousElementSibling.addEventListener('click', (e) => {
                 if (e.target.style.textDecoration === 'line-through') {
                     e.target.style.textDecoration = 'none';
                 } else {

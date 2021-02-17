@@ -11,30 +11,33 @@
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
     <body>
-        <h1>TO-DO LIST</h1>
-        <form action="" id="form">
-            <input type="text" placeholder="new task" id="inputValue">
-            <button id="submitBtn">Add</button>
-        </form>
-        <div id="content"></div>
-        <button id="clearBtn">Clear</button>
+        <div id="main">
+            <h1 id="title">TO-DO LIST</h1>
+            <form action="" id="form">
+                <input type="text" placeholder="new task" id="inputValue">
+                <button id="submitBtn">Add</button>
+            </form>
+            <div id="content"></div>
+            <button id="clearBtn">Clear</button>
+        </div>
 
         <!-- Handlebars Templating -->
         <script id="source" type="text/x-handlebars-template">
             {{#if this}}
-            <ul>
+            <ul id="table">
                 {{#each this}}
-                <li><i class="fas fa-trash-alt"></i><p class="title-text">{{this.title}}</p></li>
+                <li class="list-item"><p class="title-text">{{this.title}}</p><i class="fas fa-trash-alt"></i></li>
+                <hr>
                 {{/each}}
             </ul>
             {{else}}
-            <h2>No todos added yet...</h2>
+            <h2 id="infoText">No todos added yet...</h2>
             {{/if}}
         </script>
         <!-- JavaScript -->
         <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
-        <script src="./assets/js/utils.js"></script>
         <script src="./assets/js/constants.js"></script>
+        <script src="./assets/js/utils.js"></script>
         <script src="./assets/js/userModel.js"></script>
         <script src="./assets/js/userController.js"></script>
     </body>
