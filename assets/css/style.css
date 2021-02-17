@@ -1,6 +1,7 @@
 body {
   text-align: center;
-  font-family: monospace;
+  background-color: gainsboro;
+  font-family: "Montserrat", sans-serif;
 }
 
 #main {

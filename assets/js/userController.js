@@ -1,6 +1,7 @@
 (function () {
     // initial print of todo list
     utils.printTodos();
+    onTodoClick();
 
     // on submit
     SUBMIT_BTN.addEventListener('click', (e) => {
