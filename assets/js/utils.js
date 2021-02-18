@@ -3,6 +3,10 @@ const utils = (function () {
         return JSON.parse(localStorage.getItem(key));
     }
 
+    function setItem(key, value) {
+        return localStorage.setItem(key, JSON.stringify(value));
+    }
+
     function printTodos() {
         const todos = getItem('todos');
         const source = document.getElementById('source').innerHTML;
@@ -42,6 +46,7 @@ const utils = (function () {
 
     return {
         getItem,
+        setItem,
         printTodos,
         create_UUID,
         ifNoTodosAdded

@@ -51,7 +51,7 @@
     // delete all todos
     CLEAR_BTN.addEventListener('click', (e) => {
         e.preventDefault();
-        localStorage.setItem('todos', JSON.stringify(new Array));
+        utils.setItem('todos', JSON.stringify(new Array));
         utils.printTodos();
         INPUT.value = '';
     });

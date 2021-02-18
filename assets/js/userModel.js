@@ -13,19 +13,20 @@ const userStorage = (function () {
                 this.todos = utils.getItem('todos');
             } else {
                 this.todos = [];
-                localStorage.setItem('todos', JSON.stringify(this.todos));
+                utils.setItem('todos', JSON.stringify(this.todos));
             }
         }
 
         add(todo, uuid) {
             this.todos = utils.getItem('todos');
             this.todos.push(new Todo(todo, uuid));
-            localStorage.setItem('todos', JSON.stringify(this.todos));
+            utils.setItem('todos', JSON.stringify(this.todos));
         }
 
         remove(uuid) {
+            this.todos = utils.getItem('todos');
             this.todos = this.todos.filter(item => item.uuid !== uuid);
-            localStorage.setItem('todos', JSON.stringify(this.todos));
+            utils.setItem('todos', JSON.stringify(this.todos));
         }
 
         check(uuid) {
@@ -37,7 +38,7 @@ const userStorage = (function () {
                         todo.checked = true;
                     }
 
-                    return localStorage.setItem('todos', JSON.stringify(this.todos));
+                    return utils.setItem('todos', JSON.stringify(this.todos));
                 }
             });
         }
