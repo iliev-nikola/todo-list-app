@@ -4,6 +4,7 @@
     onTodoClick();
 
     // on submit
+    // TODO: save line-through items when adding new todos
     SUBMIT_BTN.addEventListener('click', (e) => {
         e.preventDefault();
         if (INPUT.value.trim()) {
@@ -25,6 +26,7 @@
                 continue;
             }
 
+            // on bin click
             binsArr[i].addEventListener('click', (e) => {
                 userStorage.remove(e.target.dataset.id);
                 const parent = binsArr[i].parentElement.parentElement;
@@ -34,9 +36,9 @@
                 utils.ifNoTodosAdded();
             });
 
-            binsArr[i].dataset.id = todos[i].uuid;
-
+            // on text click
             binsArr[i].previousElementSibling.addEventListener('click', (e) => {
+                userStorage.check(todos[i].uuid);
                 if (e.target.style.textDecoration === 'line-through') {
                     e.target.style.textDecoration = 'none';
                 } else {
@@ -51,5 +53,6 @@
         e.preventDefault();
         localStorage.setItem('todos', JSON.stringify(new Array));
         utils.printTodos();
+        INPUT.value = '';
     });
 })();

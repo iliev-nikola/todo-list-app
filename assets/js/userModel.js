@@ -3,6 +3,7 @@ const userStorage = (function () {
         constructor(title, uuid) {
             this.title = title;
             this.uuid = uuid;
+            this.checked = false;
         }
     }
 
@@ -25,6 +26,20 @@ const userStorage = (function () {
         remove(uuid) {
             this.todos = this.todos.filter(item => item.uuid !== uuid);
             localStorage.setItem('todos', JSON.stringify(this.todos));
+        }
+
+        check(uuid) {
+            this.todos.forEach(todo => {
+                if (todo.uuid === uuid) {
+                    if (todo.checked) {
+                        todo.checked = false;
+                    } else {
+                        todo.checked = true;
+                    }
+
+                    return localStorage.setItem('todos', JSON.stringify(this.todos));
+                }
+            });
         }
     }
 

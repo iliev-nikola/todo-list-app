@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="shortcut icon" href="./assets/icons/shortcut-icon.png"
             type="image/x-icon">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+            integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="crossorigin="anonymous"></script>
     </head>
     <body>
         <!-- View -->
@@ -33,7 +36,14 @@
             {{#if this}}
             <ul id="table">
                 {{#each this}}
-                <li class="list-item"><p class="title-text">{{this.title}}</p><i class="fas fa-trash-alt"></i></li>
+                <li class="list-item" data-id="{{this.uuid}}">
+                    {{#if this.checked}}
+                    <p class="title-text checked">{{this.title}}</p>
+                    {{else}}
+                    <p class="title-text">{{this.title}}</p>
+                    {{/if}}
+                    <i class="fas fa-trash-alt"></i>
+                </li>
                 <hr>
                 {{/each}}
             </ul>

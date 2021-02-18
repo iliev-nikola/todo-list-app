@@ -101,3 +101,7 @@ button {
 .fa-trash-alt:hover {
   color: rgb(173, 7, 7);
 }
+
+.checked {
+  text-decoration: line-through;
+}
