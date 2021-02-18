@@ -1,10 +1,10 @@
 const utils = (function () {
     function getItem(key) {
-        return JSON.parse(localStorage.getItem(key));
+        return JSON.parse(localStorage.getItem(key)) || null;
     }
 
     function setItem(key, value) {
-        return localStorage.setItem(key, JSON.stringify(value));
+        localStorage.setItem(key, JSON.stringify(value));
     }
 
     function printTodos() {

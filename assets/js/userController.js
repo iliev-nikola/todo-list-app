@@ -4,7 +4,6 @@
     onTodoClick();
 
     // on submit
-    // TODO: save line-through items when adding new todos
     SUBMIT_BTN.addEventListener('click', (e) => {
         e.preventDefault();
         if (INPUT.value.trim()) {
@@ -28,7 +27,7 @@
 
             // on bin click
             binsArr[i].addEventListener('click', (e) => {
-                userStorage.remove(e.target.dataset.id);
+                userStorage.remove(e.target.parentElement.dataset.id);
                 const parent = binsArr[i].parentElement.parentElement;
                 const child = binsArr[i].parentElement;
                 parent.removeChild(child.nextElementSibling);
@@ -51,7 +50,7 @@
     // delete all todos
     CLEAR_BTN.addEventListener('click', (e) => {
         e.preventDefault();
-        utils.setItem('todos', JSON.stringify(new Array));
+        utils.setItem('todos', new Array);
         utils.printTodos();
         INPUT.value = '';
     });
