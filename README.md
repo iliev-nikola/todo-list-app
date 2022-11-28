@@ -1,5 +1,6 @@
-# Todo List SPA Application
-## A simple SPA application using:
+# Todo List Application
+## A simple application using:
+- Languages: JavaScript, HTML, CSS
 - Pattern: MVC
 - Data storage: Browser's local storage
 - Templating: Handlebars
